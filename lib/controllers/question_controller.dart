@@ -1,10 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:quizzler/models/Questions.dart';
+import 'package:quizzler/models/screens/score/score_screen.dart';
 
 // we use Getx Pakcage for our state management
 
@@ -106,6 +105,9 @@ class QuestionController extends GetxController
       // then start it again
       // Once the timer is finished go to the next question.
       _animationController.forward().whenComplete(nextQuestion);
+    } else {
+      // Get pkg provide us simple way to navigate another pageController
+      Get.to(ScoreScreen());
     }
   }
 
